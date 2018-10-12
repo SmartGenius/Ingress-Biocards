@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Smurf The Earth Card Generator - by SmartGenius</title>
+
+		<!-- Google web fonts -->
+		<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+		
+		<link href="css/style17.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="biocard">
+			<h1>Smurf The Earth Card Generator</h1>
+			<!-- Formulario 1 Subir Imagen de Agente-->
+			<a href="index.html"><h3>-- Volver al Inicio</h3></a>
+			<div id="smurfimage">
+				<form id="upload" action="upload.php" enctype="multipart/form-data">
+					<div id="textcolor2">
+					</div>
+					<div id="smurfmask">
+					</div>
+					<div id="smurfimage2">
+
+					<img id="selectedimg" src="" width="200" height="200" border="0"></div>
+					
+					<div id="drop2" >
+				
+						<div id="droptext" class="tooltips">
+							<span>Suggested Image Dimensions: 500x500px<br>Image Formats Accepted: JPG, PNG <br>Maximum File Size: 2MB</span>
+							DROP YOUR IMAGE HERE OR <br><br>
+							<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+							<input type="file" name="upl"/><br><br><br><br><br>
+							<a >BROWSE</a>
+						</div>
+						<ul>
+						<!-- The file upload will be shown here -->
+						</ul>
+					
+					</div>
+				</form>
+			</div>
+
+			<!-- Formulario 2 Opciones de Personalizacion-->
+			<div id="optionspanel">
+				<form id="biooptions" action="gensmurf.php" method="POST">
+						<div id="sellogo" class="tooltips">
+							<span>Select your Card Type from the Dropdown list</span>
+							<img id="selectedcard" src="logos/ste17v1.jpg" width="25%">
+							<h2>Select StE Card Version</h2>
+							<input type="hidden" id="cardversion" name="version" value="1" />
+							<input type="hidden" name="selimage" id="selimage" value="">
+							<select name="stecard" onchange="displayCard(this.value,this.selectedIndex)">
+								<option value="ste17v1" selected>StE 2017 version 1</option>
+								<option value="ste17v2">StE 2017 version 2</option>
+								<option value="version3">v3 test</option>
+								<option value="version4">v4 test</option>
+
+							</select>
+							<script>
+							function displayCard(card, indice) {
+								document.getElementById("selectedcard").src = 'logos/' + card.toString() + '.jpg';
+								document.getElementById("cardversion").value = indice + 1;
+								}
+							</script>
+						
+						</div>
+
+					<div id="options">
+						<br><button id="generate">Generate StE Card</button>
+					</div>
+				</form>
+				
+			</div>
+			<div id="contact"><a href="http://telegram.me/smartgenius"><img src="img/smartgenius.png"></a></div>
+		</div>	
+		
+				<!-- JavaScript Includes -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="js/jquery.knob.js"></script>
+
+		<!-- jQuery File Upload Dependencies -->
+		<script src="js/jquery.ui.widget.js"></script>
+		<script src="js/jquery.iframe-transport.js"></script>
+		<script src="js/jquery.fileupload.js"></script>
+		
+		<!-- Our main JS file -->
+		<script src="js/upload2.js"></script>
+		<script src="js/jscolor.js"></script>
+
+	</body>
+</html>

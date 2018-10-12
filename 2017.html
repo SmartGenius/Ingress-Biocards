@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Ingress Biocard Generator - by SmartGenius</title>
+
+		<!-- Google web fonts -->
+		<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+		
+		<link href="css/style17.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="biocard">
+			<h1>Ingress Biocard Generator</h1>
+			<!-- Formulario 1 Subir Imagen de Agente-->
+			<a href="index.html"><h3>-- Volver al Inicio</h3></a>
+			<div id="frontimage">
+				<form id="upload" action="upload.php" enctype="multipart/form-data">
+					<div id="textcolor">
+					</div>
+					<div id="biomask">
+					<img id="selectedlogo" src="logos/logo_default.png" width="17%">
+					</div>
+					<div id="userimage">
+						<svg width="0" height="0">
+							<clipPath id="clipPolygon">
+								<polygon points="26 438,349 438,348 69,300 27,172 26,172 63,26 62">
+								</polygon>
+							</clipPath>
+						</svg>
+					
+					
+					<img id="selectedimg" src="" width="377" height="530" border="0"></div>
+					
+					<div id="drop" >
+				
+						<div id="droptext" class="tooltips">
+							<span>Suggested Image Dimensions: 750x930px<br>Image Formats Accepted: JPG, PNG <br>Maximum File Size: 2MB</span>
+							DROP YOUR IMAGE HERE OR <br><br>
+							<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+							<input type="file" name="upl"/>
+							<a >BROWSE</a>
+						</div>
+						<ul>
+						<!-- The file upload will be shown here -->
+						</ul>
+					
+					</div>
+				</form>
+			</div>
+
+			<!-- Formulario 2 Opciones de Personalizacion-->
+			<div id="backimage">
+				<form id="biooptions" action="gen2017.php" method="POST">
+						<div id="sellogo" class="tooltips">
+							<span>Select your logo from the Dropdown list</span>
+							<img id="selectedlogo" src="logos/logo_default.png" width="25%">
+							<h2>Select Your Logo</h2>
+							<select name="logo" onchange="displayLogo(this.value)">
+								<option value="default" selected>Ingress Logo</option>
+								<option value="refuse">Refuse &amp; Resist</option>
+								<option value="resistance">Resistance Key</option>
+								<option value="castle">Castle with Key</option>
+								<option value="wolfs">Resistance Wolfs of The North</option>
+								<option value="rescol">Resistencia Colombia</option>
+								<option value="res_hex">Resistance Hexagon</option>
+								<option value="irw">Resistance IRW</option>
+								<option value="holdkey">Hand with Key</option>
+								<option value="krakenrul">RUL Kraken</option>
+								<option value="cucuta">Resistencia Cucuta</option>
+								<option value="resmed1">Resistencia Medellin - Azul</option>
+								<option value="resmed2">Resistencia Medellin - Gris</option>
+								<option value="calicol">Resistencia Cali</option>
+								<option value="buenaventura">Resistencia Buenaventura</option>
+								<option value="pastocol">Resistencia Pasto Nari&ntilde;o</option>
+								<option value="fenix">Fenix Resistance</option>
+								<option value="res_key">Key in Hexagon</option>
+								<option value="iquitos">Resistencia Iquitos</option>
+								<option value="cruzdelsur">Resistencia Cruz del Sur</option>
+								<option value="krakenrmx">RMX Kraken</option>
+								<option value="rul">Resistencia Union Latinoamerica</option>
+								<option value="paris">Paris Resistance</option>
+								<option value="rul2">RUL Mapa Latinoamerica</option>
+								<option value="res_paraguay">Resistencia Paraguay</option>
+								<option value="kochalabol">Resistencia Cochabamba Bolivia</option>
+								<option value="enl">Enlightened Eye</option>
+								<option value="enl_hex">Enlightened Hexagon</option>
+							</select>
+							<script>
+							function displayLogo(logo) {
+								document.getElementById("selectedlogo").src = 'logos/logo_' + logo.toString() + '.png';
+								}
+							</script>
+						
+						</div>
+					<div id="selcolor" class="tooltips">
+						<span>Select the Background Color of the BackCard</span>
+						<button class="jscolor {valueElement:'bgcolor', onFineChange:'setBGColor(this)'}">
+						Pick color
+						</button>HEX value: <input id="bgcolor" value="3d3d3d">
+						<script>
+							function setBGColor(picker) {
+								document.getElementById("textcolor").style.backgroundColor = '#' + picker.toString();
+								document.getElementById("bgcol").value = picker.toString();
+								}
+						</script>
+					</div>
+				
+					<div id="options">
+						<input type="text" name="nickname" id="nickname" value="" placeholder="Your Nickname">
+						<input type="hidden" name="bgcolor" id="bgcol" value="3d3d3d">
+						<input type="hidden" name="selimage" id="selimage" value="">
+						<input type="hidden" name="plantilla" id="plantilla" value="negro">
+						<input type="checkbox" name="sello" id="sello" value="true"> NIA Ops Seal<br>
+						<label for="faction">Choose your Faction</label>
+						<input type="radio" name="faction" value="res" checked>Resistance
+						<input type="radio" name="faction" value="enl">Enlightened<br>
+						<input type="text" name="title" value="" placeholder="Your Title Here...">
+						<br><br>
+						<textarea rows="5" cols="35" name="desc" placeholder="Enter your description here..."></textarea>
+						<br><button id="generate">Generate Biocard</button>
+					</div>
+				</form>
+				
+			</div>
+			<div id="contact"><a href="http://telegram.me/smartgenius"><img src="img/smartgenius.png"></a></div>
+		</div>	
+		
+				<!-- JavaScript Includes -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="js/jquery.knob.js"></script>
+
+		<!-- jQuery File Upload Dependencies -->
+		<script src="js/jquery.ui.widget.js"></script>
+		<script src="js/jquery.iframe-transport.js"></script>
+		<script src="js/jquery.fileupload.js"></script>
+		
+		<!-- Our main JS file -->
+		<script src="js/upload.js"></script>
+		<script src="js/jscolor.js"></script>
+
+	</body>
+</html>
